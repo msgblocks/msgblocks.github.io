@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SimpleStorage - Truffle Demo</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+  <script src="./js/app.js"></script>
+</head>
+<body>
+  <h1>SimpleStorage</h1>
+  <h2>Setting and getting a message on the blockchain!</h2>
+  <br>
+  <br><label for="val">Message:</label><input type="text" id="val" placeholder="e.g. hello"></input>
+  <br><br><button id="set" onclick="App.setValue()">SET</button>
+  <br><br><button id="get" onclick="App.getValue()">GET</button>
+  <hr/>
+  <br><label for="msg">Message:</label><input type="text" id="msg" placeholder="e.g. hello"></input>
+  <br><label for="isPwdProtected">Password protected:</label><input type="checkbox" id="isPwdProtected">
+  <br><label for="pwd">Password:</label><input type="text" id="pwd" placeholder="e.g. secret"></input>
+  <br><br><button id="postMsg" onclick="App.postMessage()">POST</button>
+  <br>
+  <br><label for="msgId">ID:</label><input type="text" id="msgId" placeholder="e.g. 123"></input>
+  <br><br><button id="getMsg" onclick="App.getMessage(parseInt(document.getElementById('msgId').value))">GET</button>  
+  <br><br><button id="getMsgCount" onclick="App.getMessageCount()">COUNT</button>  
+  <br><br><button id="getUserMsgs" onclick="App.getUserMessages()">GET MY MESSAGES</button>  
+
+<script src="vendor/jquery/jquery.min.js"></script>
+  <script type="text/javaScript">
+      $(function() {
+        if (!App.start()) {
+          return;
+        }
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114326521-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-114326521-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>msgblocks - Save your message forever on the Ethereum blockchain</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="css/msgblocks.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/jquery.cookiebar.css" />
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">msgblocks</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="new.html">New</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="my.html">My Messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="faq.html">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <div class="searchWrapper">
+              <div class="search">
+                <input type="text" id="searchTerm" class="searchTerm" placeholder="msg id" onkeyup="if (event.which == 13) { document.location.href='read.html?id=' + $('#searchTerm').val().trim().replace('#',''); }">
+                <button type="submit" class="searchButton" onclick="document.location.href='read.html?id=' + $('#searchTerm').val().trim().replace('#','');event.preventDefault();">
+                  <i class="fa fa-search"></i>
+               </button>
+              </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-12 my-auto">
+            <div class="header-content mx-auto">
+              <h1 class="mb-5">Write something. Then make it permanent, immutable and censorship-resistant by saving it on the Ethereum blockchain. <br/>
+                It's the perfect solution for your <u><b>bold statements</b></u>.</h1>
+              <a href="new.html" class="btn btn-outline btn-xl js-scroll-trigger" style="width: 280px; margin-right: 10px; margin-bottom: 10px">Write new message</a>
+              <a href="read.html?id=1" class="btn btn-outline btn-xl js-scroll-trigger" style="width: 280px;">Read sample message</a>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="features bg-primary" id="why">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2>Why save something on the blockchain?</h2>
+          <hr>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 my-auto">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="feature-item">
+                    <i class="icon-link text-primary"></i>
+                    <h3>It's forever</h3>
+                    <p class="">As long as the Ethereum blockchain exists, your message does as well. And with 25K nodes + a bright future ahead, it's unlikely the whole blockchain will disappear any time soon.</p>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="feature-item">
+                    <i class="icon-calendar text-primary"></i>
+                    <h3>Datetime stamp</h3>
+                    <p class="">Your message is saved in a block of the blockchain, which has a date and time. That certifies when you wrote and saved the message, and no one can argue that.</p>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="feature-item">
+                    <i class="icon-lock text-primary"></i>
+                    <h3>No tampering</h3>
+                    <p class="">A block in the blockchain cannot be modified (otherwise the blockchain would become invalid from thereafter), and so is for your message. Once it's saved, it can't be modified.</p>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="feature-item">
+                    <i class="icon-ban text-primary"></i>
+                    <h3>No censorship</h3>
+                    <p class="">Since a block can't be modified, it also can't be deleted, which means your message can't be censored. Is there any centralised website that can guarantee you that?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2>What can you do with msgblocks?</h2>
+          <p class="text-muted">Write and store a love letter for your partner, or a date-certified prediction of the future, or...</p>
+          <hr>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 my-auto">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="feature-item">
+                    <i class="icon-key text-primary"></i>
+                    <h3>Password protection</h3>
+                    <p class="text-muted">Save your text in clear, or protect it with a password so that only you, or the people with your password, can retrieve it later.</p>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="feature-item">
+                    <i class="icon-bubbles text-primary"></i>
+                    <h3>Optional comments</h3>
+                    <p class="text-muted">Your message can be a statement that doesn't allow replies or comments...or not! If it's a love letter, let your lover reply on the blockchain!</p>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="feature-item">
+                    <i class="icon-badge text-primary"></i>
+                    <h3>Printable certificate</h3>
+                    <p class="text-muted">Print a certificate with your message's transaction hash, its block number and the timestamp. This will make a great gift for a geek ;)</p>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="feature-item">
+                    <i class="icon-globe text-primary"></i>
+                    <h3>User interface for humans</h3>
+                    <p class="text-muted">You can use any block explorer to retrieve your messages, but msgblocks has a nice, easy interface for it. Especially if you got replies.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="d-print-none">
+      <div class="container">
+        <p>&copy; msgblocks.com ‒ All Rights Reserved.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="privacy.html">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="terms.html">Terms</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="faq.html">FAQ</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="metamask.html">MetaMask</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="mailto:msgblocks@gmail.com">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts -->
+    <script src="js/msgblocks.js"></script>    
+
+    <script type="text/javascript" src="js/jquery.cookiebar.js"></script>
+
+    <script type="text/javaScript">
+      $(function() {
+        $.cookieBar({policyButton: true, policyText: 'Privacy Policy', policyURL: 'privacy.html', fixed:true, append:true, bottom: true});
+      });
+    </script>
+  </body>
+
+</html>

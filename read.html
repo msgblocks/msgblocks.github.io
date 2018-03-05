@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114326521-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-114326521-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+
+    <title>msgblocks - Read</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    
+    <link href="css/msgblocks.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery.cookiebar.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+
+  <body id="page-top">
+    <div class="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top secondary d-print-none" id="mainNav">
+      <div class="container">
+        <a id="navLogo" class="navbar-brand js-scroll-trigger" href="/">msgblocks</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="new.html">New</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="my.html">My Messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="faq.html">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <div class="searchWrapper">
+              <div class="search">
+                <input type="text" id="searchTerm" class="searchTerm" placeholder="msg id" onkeyup="if (event.which == 13) { document.location.href='read.html?id=' + $('#searchTerm').val().trim().replace('#',''); }">
+                <button type="submit" class="searchButton" onclick="document.location.href='read.html?id=' + $('#searchTerm').val().trim().replace('#','');event.preventDefault();">
+                  <i class="fa fa-search"></i>
+               </button>
+              </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar navbar-expand-lg fixed-top navbar-light secondary topband d-print-none"></div>
+
+    <section class="mainContent">
+      <div class="container mainContainer">
+
+
+
+
+
+
+
+
+
+        <div class="section-heading">
+          <p class="d-print-none"><a class="pull-right" href="#" onclick="window.print();event.preventDefault();">Print</a></p>
+          <h2>Message #<span id="msgId"></span></h2>
+        </div>
+
+        <div class="alert alert-danger" id="invalidPwd" style="display: none">
+          <p><strong>Invalid password</strong></p>
+          <p>Hmm, unfortunately it looks like the password you typed is not correct.</p>
+          <p><a href="#" onclick="document.location.reload();event.preventDefault();">Try again</a></p>
+        </div>
+        
+        <div id="message" class="col-md-12 messageBox" style="display: none">          
+          <div class="row">
+            <div class="col-md-12 text-right"><span id="date" class="msgAttributeValue msgMuted"></span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 msgAttributeLabel">From:</div>
+            <div class="col-md-10"><a id="senderLink" href="#" target="_blank"><span class="msgAttributeValue" id="sender"></span></a></div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 msgAttributeLabel">Transaction:</div>
+            <div class="col-md-10"><a id="txLink" href="#" target="_blank"><span class="msgAttributeValue" id="tx"></span></a></div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 msgAttributeLabel">Block:</div>
+            <div class="col-md-10">#<span id="block" class="msgAttributeValue"></span></div>
+          </div>          
+          <div class="row">
+            <div class="col-md-12 msgContent">“<span id="content" class="msgContent"></span>”</div>
+          </div>
+          <div class="row" style="margin-left: 0px;margin-right: 0px">
+            <div class="col-md-12 msgSeparator"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2 offset-md-6 text-right msgAttributeLabel">
+              Link to this page:<br/>
+              <div id="qrcodeMsg" class="pull-right"></div>
+            </div>
+            <div class="col-sm-2 text-right msgAttributeLabel">
+              Link to transaction:<br/>
+              <div id="qrcodeTx" class="pull-right"></div>
+            </div>
+            <div class="col-sm-2 text-right msgAttributeLabel">
+              Link to sender:<br/>
+              <div id="qrcodeSender" class="pull-right"></div>
+            </div>
+          </div>          
+        </div>
+
+
+        <div id="repliesSection" style="display: none; padding-top:30px">
+          <h3 id="repliesTitle">Replies</h3>
+
+          <div class="alert alert-danger" id="error" style="display: none">
+            <p><strong>Error</strong></p>
+            <p>Something wrong happened, and unfortunately it looks like your reply hasn't been sent successfully. Check the MetaMask log to be sure and to possibly know something more, and give it another try if you manage to understand what the problem was and how to fix it!</p>
+          </div>
+
+          <div class="alert alert-success" id="success" style="display: none">
+            <p><strong>Success!</strong></p>
+            <p>Your reply has been sent to the blockchain successfully! It might take a while before it gets "mined" and becomes visible everywhere though. You can wait here until we get the confirmation and reload this page...or you can come back a little later and go to the <a href="my.html">My messages</a> page. In the meantime, here's your transaction hash:</p>
+            <p id="txHashTemp" style="word-wrap: break-word; font-weight: bold;font-size: smaller;"">loading...</p>
+          </div>
+
+          <p id="noReplies" class="d-print-none" style="display: none">This message has no replies yet.</p>
+
+          <div id="template" style="display: none">
+            <div id="reply" class="col-md-12 messageBox">          
+              <div class="row">
+                <div class="col-md-12 text-right"><span id="rDate" class="msgAttributeValue msgMuted"></span></div>
+              </div>
+              <div class="row">
+                <div class="col-md-2 msgAttributeLabel">From:</div>
+                <div class="col-md-10"><a id="rSenderLink" href="#" target="_blank"><span class="msgAttributeValue" id="rSender"></span></a></div>
+              </div>
+              <div class="row">
+                <div class="col-md-2 msgAttributeLabel">Transaction:</div>
+                <div class="col-md-10"><a id="rTxLink" href="#" target="_blank"><span class="msgAttributeValue" id="rTx"></span></a></div>
+              </div>
+              <div class="row">
+                <div class="col-md-2 msgAttributeLabel">Block:</div>
+                <div class="col-md-10">#<span id="rBlock" class="msgAttributeValue"></span></div>
+              </div>          
+              <div class="row">
+                <div class="col-md-12 msgContent">“<span id="rContent" class="msgContent"></span>”</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="replies">
+          </div>
+
+          <h3 class="d-print-none" style="padding-top:30px">Write reply</h3>
+          <form class="col-sm-8 d-print-none" id="newMessageForm">
+            <div class="form-group">
+              <input type="text" class="form-control" id="nSenderName" placeholder="Your name and / or email (optional)">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" id="nContent" rows="3" placeholder="Your message" onblur="App.validatePostReplyForm();"></textarea>
+            </div>
+            <div class="form-check form-group">
+              <input class="form-check-input" type="checkbox" id="nTermsAgreed" onblur="App.validatePostReplyForm();">
+              <label class="form-check-label" id="nLabelTermsAgreed" for="nTermsAgreed">
+                I agree to the <a href="terms.html" target="_blank">terms and conditions</a>
+              </label>
+            </div>
+            <div class=text-right>
+              <button type="submit" class="btn btn-primary btn2-xl" id="postReply" onclick="App.postReply();event.preventDefault();">Submit</button>
+            </div>
+          </form>
+        </div>
+
+
+
+
+      </div>
+    </section>    
+    </div>
+
+    <footer class="d-print-none">
+      <div class="container">
+        <p>&copy; msgblocks.com ‒ All Rights Reserved.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="privacy.html">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="terms.html">Terms</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="faq.html">FAQ</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="metamask.html">MetaMask</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="mailto:msgblocks@gmail.com">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>  
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/loading-overlay/loadingoverlay.min.js"></script>
+    <script src="vendor/qrcode/qrcode.min.js"></script>
+
+    <!-- Custom scripts -->
+    <script src="js/geturlparam.js"></script>
+    <script src="js/msgblocks.js"></script>
+
+    <script type="text/javascript" src="js/jquery.cookiebar.js"></script>
+
+    <script type="text/javaScript">
+      $(function() {
+        $.cookieBar({policyButton: true, policyText: 'Privacy Policy', policyURL: 'privacy.html', fixed:true, append:true, bottom: true});
+
+        if (!App.start()) {
+          return;
+        }
+        App.loadMessage();
+      });
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114326521-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-114326521-1');
+    </script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>msgblocks - MetaMask</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    
+    <link href="css/msgblocks.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery.cookiebar.css" />
+
+  </head>
+
+  <body id="page-top">
+    <div class="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top secondary" id="mainNav">
+      <div class="container">
+        <a id="navLogo" class="navbar-brand js-scroll-trigger" href="/">msgblocks</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="new.html">New</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="my.html">My Messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="faq.html">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <div class="searchWrapper">
+              <div class="search">
+                <input type="text" id="searchTerm" class="searchTerm" placeholder="msg id" onkeyup="if (event.which == 13) { document.location.href='read.html?id=' + $('#searchTerm').val().trim().replace('#',''); }">
+                <button type="submit" class="searchButton" onclick="document.location.href='read.html?id=' + $('#searchTerm').val().trim().replace('#','');event.preventDefault();">
+                  <i class="fa fa-search"></i>
+               </button>
+              </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+	<div class="navbar navbar-expand-lg fixed-top navbar-light secondary topband d-print-none"></div>
+
+    <section class="mainContent">
+      <div class="container mainContainer">
+
+
+
+
+
+
+
+
+
+        <div class="section-heading">
+          <h2>MetaMask ‒ what it is and how to use it</h2>
+        </div>
+        
+        <div class="alert alert-danger" id="alertNoWalletAccount" style="display: none">
+  			<p><strong>MetaMask account not found.</strong></p>
+  			<p>You tried accessing a page or a function that requires MetaMask to be installed and properly configured with a valid wallet account. Please read this page to find out more.</p>
+		</div>
+
+        <div class="alert alert-danger" id="alertNoMetamask" style="display: none">
+  			<p><strong>MetaMask not found.</strong></p>
+  			<p>You tried accessing a page or a function that requires MetaMask to be installed on the browser. Please read this page to find out more.</p>
+		</div>
+
+		<div class="alert alert-danger" id="alertWrongNetwork" style="display: none">
+  			<p><strong>You're on the wrong Ethereum network.</strong></p>
+  			<p>While in beta, msgblocks only works on the Ropsten network, which doesn't appear to be network currently selected in MetaMask. Change it from the MetaMask's settings and try again.</p>
+		</div>
+
+		<p>From the <a href="https://metamask.io/" target="_blank">MetaMask</a> website:<br/>
+			<i>MetaMask is a bridge that allows you to visit the distributed web of tomorrow in your browser today. It allows you to run Ethereum dApps right in your browser without running a full Ethereum node.<br/><br/>MetaMask includes a secure identity vault, providing a user interface to manage your identities on different sites and sign blockchain transactions.</i>
+		</p>
+
+		<p>Here's a video that explains how to install and configure it, and how it's used to make transactions with a sample app. The way it works on msgblocks is basically the same!</p>
+		<div class="videoContainer">
+        	<iframe width="853" height="480" src="https://www.youtube.com/embed/6Gf_kRE4MJU" frameborder="0" allowfullscreen=""></iframe>
+      	</div>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </section>    
+    </div>
+
+    <footer class="d-print-none">
+      <div class="container">
+        <p>&copy; msgblocks.com ‒ All Rights Reserved.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="privacy.html">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="terms.html">Terms</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="faq.html">FAQ</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="metamask.html">MetaMask</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="mailto:msgblocks@gmail.com">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts -->
+    <script src="js/geturlparam.js"></script>
+    <script src="js/msgblocks.js"></script>
+
+    <script type="text/javascript" src="js/jquery.cookiebar.js"></script>
+
+    <script type="text/javaScript">
+      $(function() {
+        $.cookieBar({policyButton: true, policyText: 'Privacy Policy', policyURL: 'privacy.html', fixed:true, append:true, bottom: true});
+
+        if ($(document).getUrlParam('nometamask') == 'true') {
+        	$('#alertNoMetamask').show();
+        } else if ($(document).getUrlParam('noaccount') == 'true') {
+         	$('#alertNoWalletAccount').show();
+        } else if ($(document).getUrlParam('wrongnetwork') == 'true') {
+        	$('#alertWrongNetwork').show();
+        }
+      });
+    </script>
+  </body>
+
+</html>

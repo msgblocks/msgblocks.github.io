@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114326521-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-114326521-1');
+    </script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+
+    <title>msgblocks - New message</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    
+    <link href="css/msgblocks.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery.cookiebar.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+
+  <body id="page-top">
+    <div class="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top secondary" id="mainNav">
+      <div class="container">
+        <a id="navLogo" class="navbar-brand js-scroll-trigger" href="/">msgblocks</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="new.html">New</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="my.html">My Messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="faq.html">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <div class="searchWrapper">
+              <div class="search">
+                <input type="text" id="searchTerm" class="searchTerm" placeholder="msg id" onkeyup="if (event.which == 13) { document.location.href='read.html?id=' + $('#searchTerm').val().trim().replace('#',''); }">
+                <button type="submit" class="searchButton" onclick="document.location.href='read.html?id=' + $('#searchTerm').val().trim().replace('#','');event.preventDefault();">
+                  <i class="fa fa-search"></i>
+               </button>
+              </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar navbar-expand-lg fixed-top navbar-light secondary topband d-print-none"></div>
+
+    <section class="mainContent">
+      <div class="container mainContainer">
+
+
+
+
+
+
+
+
+
+        <div class="section-heading">
+          <h2>New message</h2>
+        </div>
+
+        <div class="alert alert-primary">
+          <p>msgblocks is currently in Beta, running on the <strong>Ropsten testnet</strong>, and therefore completely <strong>FREE</strong> to try!<br/>
+            <small>(You do need ETH to run the transactions, but they are free to get on Ropsten: just open MetaMask and click "Buy" to be redirected to a faucet that sends you free ETH)</small></p>
+        </div>
+
+        <div class="alert alert-danger" id="error" style="display: none">
+          <p><strong>Error</strong></p>
+          <p>Something wrong happened, and unfortunately it looks like your message hasn't been sent successfully. Check the MetaMask log to be sure and to possibly know something more, and give it another try if you manage to understand what the problem was and how to fix it!</p>
+        </div>
+
+        <div class="alert alert-success" id="success" style="display: none">
+          <p><strong>Success!</strong></p>
+          <p>Your message has been sent to the blockchain successfully! It might take a while before it gets "mined" and becomes visible everywhere though. You can wait here until we get the confirmation and load the message page...or you can come back a little later and go to the <a href="my.html">My messages</a> page. In the meantime, here's your transaction hash:</p>
+          <p id="txHashTemp" style="word-wrap: break-word; font-weight: bold;font-size: smaller;"">loading...</p>
+        </div>
+        
+        <p>Fill the form below and submit it — A MetaMask dialog will pop up asking you to confirm 
+        the transaction (remember to check the "gas" and "gas price" settings).</p>
+
+        <form class="col-sm-8" id="newMessageForm">
+          <div class="form-group">
+            <input type="text" class="form-control" id="senderName" placeholder="Your name and / or email (optional)">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="content" rows="3" placeholder="Your message" onblur="App.validatePostMessageForm();"></textarea>
+          </div>
+          <div class="form-check form-group">
+            <input class="form-check-input" type="checkbox" id="isPwdProtected" onclick="if (this.checked) { $('#passwordRow').show(150); } else { $('#passwordRow').hide(150); };">
+            <label class="form-check-label" for="isPwdProtected">
+              Password protected
+            </label>
+          </div>
+          <div class="form-group" style="display: none" id="passwordRow">
+            <input type="text" class="form-control" id="pwd" placeholder="Password" onblur="App.validatePostMessageForm();">
+          </div>
+          <div class="form-check form-group">
+            <input class="form-check-input" type="checkbox" id="allowsReplies" checked="true">
+            <label class="form-check-label" for="allowsReplies">
+              Allow replies
+            </label>
+          </div>
+          <div class="form-check form-group">
+            <input class="form-check-input" type="checkbox" id="termsAgreed" onblur="App.validatePostMessageForm();">
+            <label class="form-check-label" id="labelTermsAgreed" for="termsAgreed">
+              I agree to the <a href="terms.html" target="_blank">terms and conditions</a>
+            </label>
+          </div>
+          <div class=text-right>
+            <button type="submit" class="btn btn-primary btn2-xl" id="postMsg" onclick="App.postMessage();event.preventDefault();">Submit</button>
+          </div>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </section>    
+    </div>
+
+    <footer class="d-print-none">
+      <div class="container">
+        <p>&copy; msgblocks.com ‒ All Rights Reserved.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="privacy.html">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="terms.html">Terms</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="faq.html">FAQ</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="metamask.html">MetaMask</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="mailto:msgblocks@gmail.com">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/loading-overlay/loadingoverlay.min.js"></script>
+    
+
+    <!-- Custom scripts -->
+    <script src="js/msgblocks.js"></script>
+
+    <script type="text/javascript" src="js/jquery.cookiebar.js"></script>
+
+    <script type="text/javaScript">
+      $(function() {
+        $.cookieBar({policyButton: true, policyText: 'Privacy Policy', policyURL: 'privacy.html', fixed:true, append:true, bottom: true});
+
+        if (!App.start()) {
+          return;
+        }
+      });
+    </script>
+  </body>
+
+</html>

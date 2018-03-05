@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114326521-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-114326521-1');
+    </script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+
+    <title>msgblocks - My past messages</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    
+    <link href="css/msgblocks.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery.cookiebar.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+
+  <body id="page-top">
+    <div class="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top secondary" id="mainNav">
+      <div class="container">
+        <a id="navLogo" class="navbar-brand js-scroll-trigger" href="/">msgblocks</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="new.html">New</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="my.html">My Messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="faq.html">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <div class="searchWrapper">
+              <div class="search">
+                <input type="text" id="searchTerm" class="searchTerm" placeholder="msg id" onkeyup="if (event.which == 13) { document.location.href='read.html?id=' + $('#searchTerm').val().trim().replace('#',''); }">
+                <button type="submit" class="searchButton" onclick="document.location.href='read.html?id=' + $('#searchTerm').val().trim().replace('#','');event.preventDefault();">
+                  <i class="fa fa-search"></i>
+               </button>
+              </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar navbar-expand-lg fixed-top navbar-light secondary topband d-print-none"></div>
+
+    <section class="mainContent">
+      <div class="container mainContainer">
+
+
+
+
+
+
+
+
+
+
+
+        <div class="section-heading">
+          <h2>My past messages</h2>
+        </div>
+        
+        <p style="display: none" id="intro">Here are all the messages that we've successfully written to the blockchain.</p>
+        <p style="display: none" id="empty">You haven't written any message on the blockchain yet...what are you waiting for?</p>
+
+        <button type="submit" class="btn btn-primary btn2-xl" onclick="document.location.href='new.html';event.preventDefault();">New message</button>
+
+        <div id="template" style="display: none">
+          <div class="col-lg-12 messageBox">            
+            <p class="messageTags"><span class="badge badge-pwdProtected" style="display: {pwdProtectedDisplay}">Password protected</span> <span class="badge badge-repliesNotAllowed" style="display: {repliesNotAllowedDisplay}">Replies not allowed</span></p>
+            <p>{content}</p>            
+            <p class="detailsLink"><a href="read.html?id={id}">Details</a>
+              <span style="display: {parentLinkDisplay}"> / <a href="read.html?id={parentId}">Parent message</a></span></p>
+          </div>
+        </div>
+
+        <div id="messages">
+        </div>
+        
+        <a id="loadMore" style="display: none" data-totalUserMessageCount="-1" href="#" onclick="App.loadUserMessages();event.preventDefault();">Load more messages...</a>
+      </div>
+
+
+
+
+
+
+
+
+    </section>    
+    </div>
+
+    <footer class="d-print-none">
+      <div class="container">
+        <p>&copy; msgblocks.com ‒ All Rights Reserved.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="privacy.html">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="terms.html">Terms</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="faq.html">FAQ</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="metamask.html">MetaMask</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="mailto:msgblocks@gmail.com">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts -->
+    <script src="js/msgblocks.js"></script>
+
+    <script type="text/javascript" src="js/jquery.cookiebar.js"></script>
+
+    <script type="text/javaScript">
+      $(function() {
+        $.cookieBar({policyButton: true, policyText: 'Privacy Policy', policyURL: 'privacy.html', fixed:true, append:true, bottom: true});
+
+        if (!App.start()) {
+          return;
+        }
+
+        if (document.URL.indexOf('page=') > -1 && window.sessionStorage && window.sessionStorage.getItem('mainContent')) {
+          // load from storage
+          $('#mainContent').html(window.sessionStorage.getItem('mainContent'));
+        } else {
+          App.loadUserMessages();
+        }
+      });
+    </script>
+  </body>
+
+</html>
