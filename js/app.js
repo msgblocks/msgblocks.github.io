@@ -28051,10 +28051,9 @@ var watchingForEvents = false;
 var currentMsgId = 0;
 var currentIsPwdProtected = false;
 var currentPwd = '';
+var fee = 0;
 
-const fee = web3.toWei('0.005', 'ether'); //5000000000000000;
 const messagesPerPage = 2;
-
 const useTestnet = true;
 
 window.App = {
@@ -28072,6 +28071,8 @@ window.App = {
       document.location.href = 'metamask.html?nometamask=true';
       return false;
     }
+
+    fee = web3.toWei('0.005', 'ether'); //5000000000000000;
 
     // check if we're on the correct network
     web3.version.getNetwork((err, netId) => {
